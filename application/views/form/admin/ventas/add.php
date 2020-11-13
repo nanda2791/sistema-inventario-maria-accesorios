@@ -114,6 +114,7 @@
                                                 <th>Precio Unitario.</th>
                                                 <th>Cantidad</th>
                                                 <th>Total</th>
+                                                <th>Precio Promedio</th>
                                                 <th>Observaciones</th>
                                                 <th></th>
                                             </tr>
@@ -178,6 +179,7 @@
                             <th>Color</th>
                             <th>Talla</th>
                             <th>Marca</th>
+                            <th>Precio Promedio</th>
                             <th>Fecha ingreso</th>
                             <th>Opcion</th>
                         </tr>
@@ -192,9 +194,10 @@
                                     <td><?php echo $producto->color; ?></td>
                                     <td><?php echo $producto->talla; ?></td>
                                     <td><?php echo $producto->marca; ?></td>
+                                    <td><?php echo number_format($producto->Precio_promedio,2); ?></td>
                                     <td><?php echo $producto->fecha_registro; ?></td>
 
-                                    <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->lugar_almacenado . "*" . $producto->color . "*" . $producto->talla . "*" . $producto->marca . "*" . $producto->fecha_registro; ?>
+                                    <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->lugar_almacenado . "*" . $producto->color . "*" . $producto->talla . "*" . $producto->marca . "*" . $producto->Precio_promedio . "*" . $producto->fecha_registro; ?>
 
                                     <td>
                                         <button type="button" class="btn btn-success btn-check-producto" value="<?php echo $dataproducto ?>"><span class="fa fa-check"></span></button>

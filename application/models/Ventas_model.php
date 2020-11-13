@@ -56,11 +56,13 @@ class Ventas_model extends CI_Model
    
     public function getProductosTodos()
     {
-        $this->db->select('p.*, c.nombre as categoria');
+        $this->db->select('p.*, c.nombre as categoria, avg(dc.precio_unitario) as Precio_promedio');
         $this->db->from('productos p');
         $this->db->join('categorias c', 'c.id_categorias = p.id_categorias');
+        $this->db->join('detalle_compra dc','dc.id_productos = p.id_productos');
         $this->db->where('p.estado', '1');
-        return $this->db->get()->result();
+        $this->db->group_by('p.id_productos');
+        return  $this->db->get()->result();
     }
     public function getProductos($valor)
     {

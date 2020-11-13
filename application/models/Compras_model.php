@@ -103,4 +103,5 @@ class Compras_model extends CI_Model
         $this->db->select(' sum(stock) as items_compras');
         return $this->db->get('detalle_compra')->row_array();
     }
+   
 }

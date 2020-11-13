@@ -36,4 +36,12 @@ class Productos_model extends CI_Model
         $this->db->where('estado','1');
         return $this->db->get('productos')->row_array();
     }
+    public function promedioProducto($id_producto)
+    {
+        $this->db->select("id_productos, avg(precio_unitario) as Precio_promedio");
+        $this->db->from("detalle_compra");
+        $this->db->where("id_productos", $id_producto);
+        $this->db->group_by('id_productos');
+        return $this->db->get()->row();
+    }
 }

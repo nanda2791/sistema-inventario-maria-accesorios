@@ -120,8 +120,9 @@
                                                          <td><input type='hidden' class='id_productos' name='id_productos[]' value='<?php echo $detalle_venta->id_productos ?>'><?php echo $detalle_venta->codigo ?></td>
                                                          <td><?php echo $detalle_venta->nombre; ?></td>
                                                          <td><?php echo $detalle_venta->marca; ?></td>
-                                                         <td><input type='number' class='precio_unitario form-control' name='precio_unitario[]' value='<?php echo $detalle_venta->precio_unitario ?>'></td>
-                                                         <td><input type='number' class="cantidad" name='cantidad[]' min='0' value='<?php echo $detalle_venta->cantidad ?>'></td>
+                                                         <td><input type='number' class='precio_unitario form-control' name='precio_unitario[]' value='<?php echo $detalle_venta->precio_unitario ?>'>
+                                                         </td>
+                                                         <td><input type='number' class="cantidad form-control" name='cantidad[]' min='0' value='<?php echo $detalle_venta->cantidad ?>'></td>
                                                          <td><input type='number' class='total form-control' readonly name='total[]' value='<?php echo $detalle_venta->total ?>'>
                                                          </td>
                                                          <td><input type='text' class='observaciones form-control' name='observaciones[]' value='<?php echo $detalle_venta->observaciones ?>'><?php echo $detalle_venta->observaciones ?></td>
@@ -232,7 +233,7 @@
                  <h4 class="modal-title">Lista de Productos</h4>
              </div>
              <div class="modal-body">
-                 <table id="tablaProdcutos" class="table table-bordered table-striped table-hover">
+                 <table id="tablaProductos" class="table table-bordered table-striped table-hover">
                      <thead>
                          <tr>
                              <th>Codigo</th>
@@ -241,6 +242,7 @@
                              <th>Color</th>
                              <th>Talla</th>
                              <th>Marca</th>
+                             <th>Precio Promedio</th>
                              <th>Fecha ingreso</th>
                              <th>Opcion</th>
                          </tr>
@@ -255,9 +257,10 @@
                                          <td><?php echo $producto->color; ?></td>
                                          <td><?php echo $producto->talla; ?></td>
                                          <td><?php echo $producto->marca; ?></td>
+                                         <td><?php echo number_format($producto->Precio_promedio,2); ?></td>
                                          <td><?php echo $producto->fecha_registro; ?></td>
 
-                                         <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->lugar_almacenado . "*" . $producto->color . "*" . $producto->talla . "*" . $producto->marca . "*" . $producto->fecha_registro; ?>
+                                         <?php $dataproducto = $producto->id_productos . "*" . $producto->codigo . "*" . $producto->nombre . "*" . $producto->lugar_almacenado . "*" . $producto->color . "*" . $producto->talla . "*" . $producto->marca . "*" . $producto->Precio_promedio . "*" . $producto->fecha_registro; ?>
 
                                          <td>
                                              <button type="button" class="btn btn-success btn-check-producto" value="<?php echo $dataproducto ?>"><span class="fa fa-check"></span></button>

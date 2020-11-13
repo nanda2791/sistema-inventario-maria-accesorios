@@ -88,6 +88,7 @@ function agregarProducto(producto) {
         html += "<td><input type = 'number' step = '0.01' value = '0' class='precio_unitario form-control' min = '0' name = 'precio_unitario[]' ></td>";
         html += "<td><input type = 'number' step = '1' value = '0'  class='cantidad form-control' min = '0' name = 'cantidad[]' ></td>";
         html += "<td><input type = 'number' readonly  step = '0.01'  value = '0'  class='total form-control' min = '0' name = 'total[]' ></td>";
+        html += "<td><input type = 'number'  readonly class='marca form-control' step = '0.01' name = 'Precio_promedio[]' value='" + infoproducto[7] + "' ></td>";
         html += "<td><input type = 'text' maxlength='100'  class='observaciones form-control' min = '0' name = 'observaciones[]' ></td>";
         html += "<td><button type='button' class='btn btn-danger btn-remove-producto' title = 'Eliminar fila!'><span class='fa fa-remove'></span></button></td>";
         html += "</tr>";
